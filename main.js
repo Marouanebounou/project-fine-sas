@@ -1,43 +1,7 @@
 const prompt = require("prompt-sync")();
 let choice;
 let opNum;
-let livres = [
-  {
-    id_livre: "123",
-    titre: "Le Petit Prince",
-    auteur: "Saint-Exupéry",
-    annee: 1943,
-    disponible: "non",
-  },
-  {
-    id_livre: "456",
-    titre: "L'Étranger",
-    auteur: "Camus",
-    annee: 1942,
-    disponible: "non",
-  },
-  {
-    id_livre: "456",
-    titre: "A'Étranger",
-    auteur: "Camus",
-    annee: 1942,
-    disponible: "non",
-  },
-  {
-    id_livre: "456",
-    titre: "C'Étranger",
-    auteur: "Camus",
-    annee: 1942,
-    disponible: "non",
-  },
-  {
-    id_livre: "456",
-    titre: "B'Étranger",
-    auteur: "Camus",
-    annee: 1942,
-    disponible: "non",
-  },
-];
+let livres = [];
 function menu() {
   console.log("------Menu------");
   console.log(
@@ -48,7 +12,7 @@ function menu() {
 function menu2() {
   console.log("------Opérations sur les livres------");
   console.log(
-    " 1. Afficher tous les livres \n 2. Trier les livres par titre (ascendant/descendant) \n 3. Trier les livres par année de publication \n 4. Afficher uniquement les livres disponibles \n 5. Rechercher un livre par ID_livre \n 6. Quitter l’application"
+    " 1. Afficher tous les livres \n 2. Trier les livres par titre (ascendant/descendant) \n 3. Trier les livres par année de publication \n 4. Afficher uniquement les livres disponibles \n 5. Rechercher un livre par ID_livre \n 6. Quitter"
   );
   opNum = Number(prompt(": "));
 }
