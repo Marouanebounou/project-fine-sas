@@ -79,7 +79,6 @@ function introduire() {
   let disponible = prompt("ce livre est-il disponible oui/non ? : ");
   livres.push(new addLivre(livre, auteur, annee, disponible));
   console.log("Livre créé avec succès");
-  
 }
 
 function ajouterPlusieur() {
@@ -323,11 +322,11 @@ function GestionDesAbonnes() {
     switch (menu3Num) {
       case 1:
         AjouterUnAbonne();
-        menu3()
+        menu3();
         break;
       case 2:
         AfficherAllAbonnes();
-        menu3()
+        menu3();
         break;
     }
   } while (menu3Num !== 3);
@@ -339,7 +338,6 @@ function AjouterUnAbonne() {
   let email = prompt("Entrez votre email: ");
   abonneses.push(new addAbonnese(nom, prenom, email));
   console.log("Abonne créé avec succès");
-  
 }
 
 function AfficherAllAbonnes() {
