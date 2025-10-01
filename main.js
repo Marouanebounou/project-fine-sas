@@ -1,7 +1,13 @@
+// Declaration
+
 const prompt = require("prompt-sync")();
 let choice;
 let opNum;
+let menu3Num;
 let livres = [];
+let abonneses = [];
+
+// Menus
 function menu() {
   console.log("------Menu------");
   console.log(
@@ -16,6 +22,17 @@ function menu2() {
   );
   opNum = Number(prompt(": "));
 }
+
+function menu3() {
+  console.log("------Gestion des abonnés------");
+  console.log(
+    " 1. Ajouter un abonné \n 2. Afficher tous les abonnés. \n 3. Quitter"
+  );
+  menu3Num = Number(prompt(": "));
+}
+
+// Main
+
 do {
   menu();
   switch (choice) {
@@ -29,19 +46,31 @@ do {
       operationsEnLivres();
       break;
     case 4:
+      GestionDesAbonnes();
       break;
     case 5:
       break;
   }
 } while (choice !== 6);
 
-function addLivre(nom, auteur, annee, disponible ) {
-  this.id_livre = livres.length+1;
+//Constructors
+
+function addLivre(nom, auteur, annee, disponible) {
+  this.id_livre = livres.length + 1;
   this.titre = nom;
   this.auteur = auteur;
   this.annee = Number(annee);
   this.disponible = disponible;
 }
+
+function addAbonnese(nom, prenom, email) {
+  this.id = abonneses.length + 1;
+  this.nom = nom;
+  this.prenom = prenom;
+  this.email = email;
+}
+
+//Functions
 
 function introduire() {
   let livre = prompt("Entrez le nom de livre : ");
@@ -49,6 +78,8 @@ function introduire() {
   let annee = prompt("Entrez l'annee de livre : ");
   let disponible = prompt("ce livre est-il disponible oui/non ? : ");
   livres.push(new addLivre(livre, auteur, annee, disponible));
+  console.log("Livre créé avec succès");
+  
 }
 
 function ajouterPlusieur() {
@@ -90,6 +121,8 @@ function operationsEnLivres() {
   } while (opNum !== 6);
 }
 
+//Afficher tous les livres
+
 function afficherAll() {
   if (livres.length == 0) {
     console.log("-".repeat(30));
@@ -113,6 +146,8 @@ function afficherAll() {
     console.log("-".repeat(30));
   }
 }
+
+// Trier les livres par titre (ascendant/descendant)
 
 function sortArrayByAlphab() {
   if (livres.length == 0) {
@@ -166,6 +201,8 @@ function sortArrayByAlphab() {
   }
 }
 
+// Trier les livres par année de publication
+
 function sortArrayByAnnee() {
   if (livres.length == 0) {
     console.log("-".repeat(30));
@@ -211,6 +248,8 @@ function sortArrayByAnnee() {
   }
 }
 
+//Afficher uniquement les livres disponibles
+
 function AfficherLivresDisponibles() {
   let livresDispo = [];
   for (let i in livres) {
@@ -240,6 +279,8 @@ function AfficherLivresDisponibles() {
     }
   }
 }
+
+//Rechercher un livre par ID_livre
 
 function RechercherLivre() {
   console.log("-".repeat(30));
@@ -274,3 +315,52 @@ function RechercherLivre() {
   }
 }
 
+//Gestion des abonnés
+
+function GestionDesAbonnes() {
+  menu3();
+  do {
+    switch (menu3Num) {
+      case 1:
+        AjouterUnAbonne();
+        menu3()
+        break;
+      case 2:
+        AfficherAllAbonnes();
+        menu3()
+        break;
+    }
+  } while (menu3Num !== 3);
+}
+
+function AjouterUnAbonne() {
+  let nom = prompt("Entrez votre Nom: ");
+  let prenom = prompt("Entrez votre Prenom: ");
+  let email = prompt("Entrez votre email: ");
+  abonneses.push(new addAbonnese(nom, prenom, email));
+  console.log("Abonne créé avec succès");
+  
+}
+
+function AfficherAllAbonnes() {
+  if (abonneses.length == 0) {
+    console.log("-".repeat(30));
+    console.log("aucun livre fondé");
+    console.log("-".repeat(30));
+  } else {
+    for (let i in abonneses) {
+      console.log("-".repeat(30));
+      console.log(
+        "-Id: " +
+          abonneses[i].id +
+          " -Nom: " +
+          abonneses[i].nom +
+          " -Prenom: " +
+          abonneses[i].prenom +
+          " -Email: " +
+          abonneses[i].email
+      );
+    }
+    console.log("-".repeat(30));
+  }
+}
