@@ -14,6 +14,10 @@ function menu() {
     " 1. Introduire un livre \n 2. Ajouter plusieurs livres \n 3. Opérations sur les livres \n 4. Gestion des abonnés \n 5. Gestion des emprunts \n 6. Quitter l’application"
   );
   choice = Number(prompt(": "));
+  if(choice !== 1 && choice !== 2 && choice !== 3 && choice !== 4 && choice !== 5 && choice !== 6){
+    console.log("invalide input! ");
+    menu()
+  }
 }
 function menu2() {
   console.log("------Opérations sur les livres------");
@@ -21,6 +25,10 @@ function menu2() {
     " 1. Afficher tous les livres \n 2. Trier les livres par titre (ascendant/descendant) \n 3. Trier les livres par année de publication \n 4. Afficher uniquement les livres disponibles \n 5. Rechercher un livre par ID_livre \n 6. Quitter"
   );
   opNum = Number(prompt(": "));
+  if(opNum !== 1 && opNum !== 2 && opNum !== 3 && opNum !== 4 && opNum !== 5 && opNum !== 6){
+    console.log("invalide input! ");
+    menu2()
+  }
 }
 
 function menu3() {
@@ -29,6 +37,10 @@ function menu3() {
     " 1. Ajouter un abonné \n 2. Afficher tous les abonnés. \n 3. Quitter"
   );
   menu3Num = Number(prompt(": "));
+  if(menu3Num !== 1 && menu3Num !== 2 && menu3Num !== 3){
+    console.log("invalide input! ");
+    menu3()
+  }
 }
 
 // Main
