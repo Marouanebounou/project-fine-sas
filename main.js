@@ -220,7 +220,7 @@ function sortArrayByAnnee() {
     console.log("aucun livre fondé");
     console.log("-".repeat(30));
   } else {
-    let sortOrder = Number(prompt("1 pour ascendant et 2 pour descendant : "));
+    let sortOrder = +(prompt("1 pour ascendant et 2 pour descendant : "));
     if (sortOrder == 1) {
       let livresByAnne = livres.sort((a, b) => b.annee - a.annee);
       for (let i in livresByAnne) {
